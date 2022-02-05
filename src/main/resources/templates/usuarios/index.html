@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+        <title>Usuários - Danis Park</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link type="text/css" rel="stylesheet" th:href="@{/styles/materialize/css/materialize.min.css}"
+              media="screen,projection"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">Danis Park 2.0</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/usuarios/cadastrar" class="waves-effect waves-light btn">
+                                <i class="material-icons left">add</i>
+                                Novo Usuário
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Nome</th>
+                        <th>Celular</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario: ${usuarios}">
+                        <td>
+                            <span th:text="${usuario.cpf}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${usuario.nome}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${usuario.celular}"></span>
+                        </td>
+                        <td>
+                            <a th:href="${(#mvc.url('UC#deletarUsuario').arg(0, usuario.numero)).build()}"
+                               class="waves-effect waves-light btn-small"
+                               >
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" th:src="@{/styles/materialize/js/materialize.min.js}"></script>
+    </body>
+</html>

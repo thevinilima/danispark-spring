@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="alert alert-success alert-dismissable" role="alert" th:if="${not #strings.isEmpty(message)}">
+    <span th:text="${message}" />
+</div>
+
+</body>
+</html>
