@@ -1,4 +1,4 @@
-# DanisPark 2.0 - Spring Boot
+# Danis Park 2.0 - Spring Boot
 by `Danis Corp`
 
 Trabalho prático de Linguagem de Programação
