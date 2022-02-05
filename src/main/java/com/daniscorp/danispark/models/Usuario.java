@@ -21,6 +21,14 @@ public class Usuario {
     
     private String celular;
 
+    public Usuario() {}
+
+    public Usuario(String nome, String cpf, String celular) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.celular = celular;
+    }
+
     public int getNumero() {
         return numero;
     }
