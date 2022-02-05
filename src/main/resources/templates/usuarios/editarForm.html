@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar ${usuario.nome}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/styles/materialize/css/materialize.min.css}"
+          media="screen,projection"/>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Editar <span th:text="${usuario.nome}"/></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="/usuarios" class="waves-effect waves-light btn">
+                        <i class="material-icons left">format_list_bulleted</i>
+                        Lista de Usuários
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="section">
+        <form method="post" th:action="@{/usuarios/update/{numero}(numero=${usuario.numero})}">
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" th:value="${usuario.nome}" maxlength="30"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <label for="cpf">CPF</label>
+                    <input type="number" name="cpf" th:value="${usuario.cpf}" maxlength="11"/>
+                </div>
+                <div class="input-field col s3">
+                    <label for="celular">Celular</label>
+                    <input type="text" name="celular" th:value="${usuario.celular}"/>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="waves-effect waves-light btn">
+                    Salvar
+                </button>
+            </div>
+        </form>
+        <th:block th:include="mensagemValidacao"/>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/styles/materialize/js/materialize.min.js}"></script>
+</body>
+</html>

@@ -31,7 +31,7 @@
                         <th>CPF</th>
                         <th>Nome</th>
                         <th>Celular</th>
-                        <th>Ações</th>
+                        <th colspan="2" class="center-align">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +44,12 @@
                         </td>
                         <td>
                             <span th:text="${usuario.celular}"></span>
+                        </td>
+                        <td>
+                            <a th:href="${(#mvc.url('UC#editarUsuario').arg(0, usuario.numero)).build()}"
+                               class="waves-effect waves-light btn-small">
+                                <i class="material-icons">edit</i>
+                            </a>
                         </td>
                         <td>
                             <a th:href="${(#mvc.url('UC#deletarUsuario').arg(0, usuario.numero)).build()}"
